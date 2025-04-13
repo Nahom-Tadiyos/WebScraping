@@ -4,6 +4,8 @@ import json
 from bs4 import BeautifulSoup
 import pandas as pd
 import os
+from customtkinter import *
+import customtkinter as ct
 
 def scrapeData():
     matchid = input("Enter a match id: ")
@@ -35,3 +37,13 @@ def scrapeData():
 
 if __name__ == "__main__":
     scrapeData()
+
+app = ct.CTk()
+app.geometry("700x700")
+app.title("Scraper")
+
+
+
+
+
+app.mainloop()
