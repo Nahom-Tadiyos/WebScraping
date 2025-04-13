@@ -35,15 +35,16 @@ def scrapeData():
 
     return matchid
 
-if __name__ == "__main__":
-    scrapeData()
 
 app = ct.CTk()
 app.geometry("700x700")
 app.title("Scraper")
 
+matchID = ct.CTkTextbox(app, corner_radius=0.5)
+matchID.pack()
 
-
+getDataBtn = ct.CTkButton(app, width=50, text="Get Data")
+getDataBtn.pack()
 
 
 app.mainloop()
