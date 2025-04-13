@@ -40,7 +40,7 @@ app = ct.CTk()
 app.geometry("700x700")
 app.title("Scraper")
 
-matchID = ct.CTkTextbox(app, corner_radius=0.5)
+matchID = ct.CTkTextbox(app, corner_radius=0.5, width=100, height=25)
 matchID.pack()
 
 getDataBtn = ct.CTkButton(app, width=50, text="Get Data")
