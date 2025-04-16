@@ -1,9 +1,12 @@
 import re
 import requests
+import csv
 import json
 from bs4 import BeautifulSoup
 import pandas as pd
+from customtkinter import *
 import customtkinter as ct
+from tkinter import filedialog
 
 def scrapeData():
     matchid = matchID.get().strip()
@@ -25,16 +28,30 @@ def scrapeData():
 
     shotsData = match.group(1)
     data = json.loads(shotsData.encode('utf8').decode('unicode_escape'))
-    shotsDf = pd.DataFrame(data['h'])
+
+    global shotsDf
+    shotsDf = pd.DataFrame(data['h'] + data['a'])
 
     previewText.delete("1.0", "end")
     previewText.insert("end", shotsDf.head().to_string(index=False))
 
-
     return matchid
 
 def saveData():
-    pass
+    if 'shotsDf' not in globals():
+        previewText.delete("1.0", "end")
+        previewText.insert("end", "Please scrape data first before saving.")
+        return
+
+    file_path = filedialog.asksaveasfilename(
+        defaultextension=".csv",
+        filetypes=[("CSV files", "*.csv"), ("All files", "*.*")]
+    )
+
+    if file_path:
+        shotsDf.to_csv(file_path, index=False)
+        previewText.delete("1.0", "end")
+        previewText.insert("end", f"Data saved to {file_path}")
 
 app = ct.CTk()
 app.geometry("700x700")
