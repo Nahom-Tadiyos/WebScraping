@@ -1,5 +1,6 @@
 # Soccer Data Scraper
 
+![Demo](/media/example.gif)
 
 ## Features (Planned)
 - Choose between different soccer websites to scrape data
