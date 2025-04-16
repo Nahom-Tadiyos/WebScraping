@@ -33,9 +33,13 @@ def scrapeData():
 
     return matchid
 
+def saveData():
+    pass
+
 app = ct.CTk()
 app.geometry("700x700")
 app.title("Scraper")
+ct.set_appearance_mode("dark")
 
 matchID = ct.CTkEntry(app, corner_radius=8, width=200, height=30, placeholder_text="Enter Match ID")
 matchID.pack(pady=10)
@@ -45,5 +49,8 @@ getDataBtn.pack(pady=10)
 
 previewText = ct.CTkTextbox(app, width=600, height=400)
 previewText.pack(pady=10)
+
+saveBtn = ct.CTkButton(app, width=120, text="Save CSV", command=saveData)
+saveBtn.pack()
 
 app.mainloop()
