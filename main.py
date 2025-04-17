@@ -103,6 +103,9 @@ style.map("Treeview",
     foreground=[("selected", "white")]
 )
 
+title = ct.CTkLabel(app, text="Python Data Scraper", text_color="white")
+title.pack()
+
 matchID = ct.CTkEntry(app, corner_radius=8, width=200, height=30, placeholder_text="Enter Match ID")
 matchID.pack(pady=10)
 
